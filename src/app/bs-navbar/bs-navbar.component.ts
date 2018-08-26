@@ -6,12 +6,11 @@ import { AngularFireAuth } from '../../../node_modules/angularfire2/auth';
   templateUrl: './bs-navbar.component.html',
   styleUrls: ['./bs-navbar.component.css']
 })
-export class BsNavbarComponent implements OnInit {
+export class BsNavbarComponent {
+  user: firebase.User;
 
   constructor(private afAuth: AngularFireAuth) {
-    afAuth.authState.subscribe(user => console.log(user)); }
-
-  ngOnInit() {
+    afAuth.authState.subscribe(user => this.user = user);
   }
 
   logout() {
