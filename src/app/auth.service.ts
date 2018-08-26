@@ -10,7 +10,7 @@ export class AuthService {
 
   constructor(private afAuth: AngularFireAuth, private route: ActivatedRoute) {
     this.user$ = afAuth.authState;
-  }
+  } 
 
   login() {
     const returnUrl = this.route.snapshot.queryParamMap.get('retrunUrl');
