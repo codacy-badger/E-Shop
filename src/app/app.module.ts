@@ -1,3 +1,4 @@
+import { AuthGuardService } from './auth-guard.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
@@ -44,15 +45,17 @@ import { AuthService } from './auth.service';
       { path: '', component: HomeComponent },
       { path: 'shopping-cart', component: ShoppingCartComponent },
       { path: 'products', component: ProductsComponent },
-      { path: 'my/orders', component: MyOrdersComponent },
-      { path: 'check-out', component: CheckOutComponent },
-      { path: 'order-success', component: OrderSuccessComponent },
       { path: 'login', component: LoginComponent },
+
+      { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuardService] },
+      { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuardService] },
+      { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService] },
+
       { path: 'admin/products', component: AdminProductsComponent },
       { path: 'admin/orders', component: AdminOrdersComponent }
     ])
   ],
-  providers: [ AuthService],
+  providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
