@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '../../../node_modules/angularfire2/auth';
 
 @Component({
   selector: 'app-bs-navbar',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BsNavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private afAuth: AngularFireAuth) {
+    afAuth.authState.subscribe(user => console.log(user)); }
 
   ngOnInit() {
+  }
+
+  logout() {
+    this.afAuth.auth.signOut();
   }
 
 }
