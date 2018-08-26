@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as fitrebase from 'firebase';
-import { AngularFireDatabase } from '../../node_modules/angularfire2/database';
+import { AngularFireDatabase, FirebaseObjectObservable } from '../../node_modules/angularfire2/database';
+import { AppUser } from './models/app-user';
 
 @Injectable()
 export class UserService {
@@ -11,7 +12,10 @@ export class UserService {
     this.db.object('/users/' + user.uid).update({
       name: user.displayName,
       email: user.email,
-    })
+    });
+  }
+  get(uid: string): FirebaseObjectObservable<AppUser> {
+    return this.db.object('/users/' + uid);
   }
 
 }
