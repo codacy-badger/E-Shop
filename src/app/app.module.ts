@@ -1,3 +1,4 @@
+import { CategoryService } from './category.service';
 import { AdminAuthGuardService } from './admin-auth-guard.service';
 import { UserService } from './user.service';
 import { AuthGuardService } from './auth-guard.service';
@@ -60,7 +61,7 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
       { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AdminAuthGuardService] }
     ])
   ],
-  providers: [AuthService, AuthGuardService, UserService, AdminAuthGuardService],
+  providers: [AuthService, AuthGuardService, UserService, AdminAuthGuardService, CategoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
