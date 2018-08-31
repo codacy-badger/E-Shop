@@ -18,4 +18,8 @@ export class ProductService {
     return this.db.object('/products/' + productId);
   }
 
+  update(productId, product) {
+    this.db.object('/products/' + productId).update(product);
+  }
+
 }
