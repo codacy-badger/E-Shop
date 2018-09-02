@@ -1,6 +1,15 @@
 <div class="row">
-  <ng-container *ngFor="let product of products$ | async; let i = index">
-      <div class="col">
+  <div class="col-3">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let cat of categories$ | async">
+        {{cat.name}}
+      </li>
+    </ul>
+  </div>
+  <div class="col">
+    <div class="row">
+      <ng-container *ngFor="let product of products$ | async; let i = index">
+        <div class="col">
           <div class="card" style="width: 15rem">
             <img class="card-img-top" [src]="product.imageUrl" alt="Card image cap">
             <div class="card-body">
@@ -11,6 +20,8 @@
           </div>
         </div>
         <div class="w-100" *ngIf="(i+1) % 2 ===0 "></div>
-  </ng-container>
- 
+      </ng-container>
+
+    </div>
+  </div>
 </div>
