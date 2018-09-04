@@ -2,8 +2,14 @@
   <div class="col-3">
     <div class="list-group">
       <a 
-      *ngFor="let cat of categories$ | async"
       routerLink=""
+      [class.active]="!category" 
+      class="list-group-item list-group-item-action">
+        All Categories
+      </a>
+      <a 
+      *ngFor="let cat of categories$ | async"
+      routerLink="/"
       [queryParams]="{category : cat.$key}"
       [class.active]="category === cat.$key" 
       class="list-group-item list-group-item-action">
