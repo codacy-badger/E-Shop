@@ -28,6 +28,7 @@ import { OrderSuccessComponent } from './order-success/order-success.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
+import { ProductFilterComponent } from './products/product-filter/product-filter.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
     AdminOrdersComponent,
     OrderSuccessComponent,
     LoginComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    ProductFilterComponent
   ],
   imports: [
     BrowserModule,
