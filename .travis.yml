@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+  - "6.10.2"
+cache:
+  directories:
+    - node_modules
+branches:
+  only:
+    - master
+git:
+  depth: 1
+
+script:
+  - ng build --env=prod
+
+deploy:
+  provider: firebase
+  token:
+    secure: $FIREBASE_TOKEN
